@@ -142,6 +142,7 @@ func (l *Lister) ListStat(keys []string) []*FileStat {
 		fmt.Printf("ListStat: %s", err)
 		return []*FileStat{}
 	} else {
+		fmt.Printf("fileStats: %+v len: %d", fileStats, len(fileStats))
 		return fileStats
 	}
 }
