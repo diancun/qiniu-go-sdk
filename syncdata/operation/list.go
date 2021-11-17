@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"os"
 	"sort"
@@ -138,6 +139,7 @@ func (l *Lister) Delete(key string) error {
 // 获取指定对象列表的元信息
 func (l *Lister) ListStat(keys []string) []*FileStat {
 	if fileStats, err := l.listStat(context.Background(), keys); err != nil {
+		fmt.Printf("ListStat: %s", err)
 		return []*FileStat{}
 	} else {
 		return fileStats
